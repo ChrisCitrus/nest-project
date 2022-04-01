@@ -11,7 +11,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "./src/scripts/start.sh",
     "start:prod": "ts-node -r dotenv/config -r tsconfig-paths/register src/main.ts",
-    "start:dev": "nodemon --config nodemon.json",
+    "start:dev": "npm run start:dev:db && nodemon --config nodemon.json",
     "start:dev:db": "./src/scripts/start-db.sh",
     "start:dev:db:seed": "ts-node -r tsconfig-paths/register src/scripts/seed.ts",
     "start:debug": "nest start --debug --watch",

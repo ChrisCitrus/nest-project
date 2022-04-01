@@ -35,16 +35,28 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+# database setup
+$ npm run typeorm:migration:generate -- my_init
+$ npm run typeorm:migration:run
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
+## Interacting with the app
+
+```bash
+$ curl localhost:3001/item | jq
+
+[] <-indicating no items in the DB
+
+$ curl --location -g --request POST 'http://[::1]:3001/item' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "test_data",
+    "description": "Test data"
+}'
+```
 ## Test
 
 ```bash
